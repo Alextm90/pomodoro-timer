@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#length {
+  margin: 3rem;
+}
+
+.controls {
+  border: 1px solid black;
+  margin: 1rem;
+}
+
+.controls:hover {
+  cursor: pointer;
+}
