@@ -2,12 +2,14 @@ import './App.css';
 import { useState } from 'react';
 import Clock from './Clock'
 
-
 function App() {
 
   const [breakLength, setBreakLength] = useState(5);
   const [sessionLength, setSessionLength] = useState(25);
   const [session, setSession] = useState(25);
+  const [seconds, setSeconds] = useState("00");
+  const [minutes, setMinutes] = useState(25);
+  const [isActive, setIsActive] = useState(false);
 
 const decrementBreak = () => {
   if (breakLength > 1) {
@@ -24,16 +26,38 @@ const incrementBreak = () => {
 }
 
 const decrementSession = () => {
-  if (sessionLength > 1) {
-  setSessionLength(prevState => prevState - 1)
-   setSession(prevState => prevState - 1)
+if (isActive === false) {
+    if (sessionLength > 1) {
+    setSessionLength(prevState => prevState - 1)
+    }
+
+    if (sessionLength > 10 && minutes != 10) {
+      console.log("10")
+    setMinutes(prevState => prevState - 1)
+    }
+    if (minutes <= 10 && sessionLength > 1) {
+      console.log("9")
+      setMinutes((minutes) => minutes - 1)
+    }
+    if (minutes == "00" && seconds == "00" || minutes == "00" && seconds > 0) {
+      setMinutes(minutes)
+      setSeconds(seconds)
+    }
   }
 }
 
 const incrementSession = () => {
-    if (sessionLength < 60) {
-  setSessionLength(prevState => prevState + 1)
-  setSession(prevState => prevState + 1)
+if (isActive === false) {
+   if (sessionLength < 60) {
+      setSessionLength(prevState => prevState + 1)
+    }
+   if (sessionLength > 10 && minutes > 10) {
+      setMinutes(prevState => prevState + 1)
+    }
+    if (minutes <= 10 && sessionLength > 0) {
+      console.log("9")
+      setMinutes((prevState) => prevState + 1)
+    }
   }
 }
 
@@ -51,7 +75,7 @@ const incrementSession = () => {
         <button id='session-increment' onClick={incrementSession}>increment</button>
         <div id='session-length'>{sessionLength}</div>
       </section>
-      <Clock session={session} setSession={setSession} setBreakLength={setBreakLength} setSessionLength={setSessionLength}/>
+      <Clock session={session} setSession={setSession} setBreakLength={setBreakLength} sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive}/>
     </div>
   );
 }
