@@ -1,30 +1,62 @@
+// App
+
 import './App.css';
 import { useState } from 'react';
 import Clock from './Clock'
 
 function App() {
 
+  // State for break
   const [breakLength, setBreakLength] = useState(5);
+  const [breakActive, setBreakActive] = useState(false);
+  const [secondsBreak, setSecondsBreak] = useState("00");
+  const [minutesBreak, setMinutesBreak] = useState(5);
+  
+ 
+  // State for session
   const [sessionLength, setSessionLength] = useState(25);
-  const [session, setSession] = useState(25);
   const [seconds, setSeconds] = useState("00");
   const [minutes, setMinutes] = useState(25);
   const [isActive, setIsActive] = useState(false);
 
+
+// Break controls
 const decrementBreak = () => {
-  if (breakLength > 1) {
+if (isActive === false) {
+    if (breakLength > 1) {
     setBreakLength(prevState => prevState - 1)
+    }
+    if (breakLength > 10 && minutesBreak != 10) {
+      console.log("10")
+    setMinutesBreak(prevState => prevState - 1)
+    }
+    if (minutesBreak <= 10 && breakLength > 1) {
+      console.log("9")
+      setMinutesBreak((minutesBreak) => minutesBreak - 1)
+    }
+    if (minutesBreak == "00" && secondsBreak == "00" || minutesBreak == "00" && secondsBreak > 0) {
+      setMinutesBreak(minutesBreak)
+      setSecondsBreak(secondsBreak)
+    }
   }
 }
 
 const incrementBreak = () => {
-  if (breakLength < 60) {
-    setBreakLength(prevState => prevState + 1)
-
-  console.log(breakLength)
+if (isActive === false) {
+   if (breakLength < 60) {
+      setBreakLength(prevState => prevState + 1)
+    }
+   if (breakLength > 10 && minutesBreak > 10) {
+      setMinutesBreak(prevState => prevState + 1)
+    }
+    if (minutesBreak <= 10 && breakLength > 0) {
+      console.log("9")
+      setMinutesBreak((prevState) => prevState + 1)
+    }
   }
 }
 
+// Session controls
 const decrementSession = () => {
 if (isActive === false) {
     if (sessionLength > 1) {
@@ -75,7 +107,7 @@ if (isActive === false) {
         <button id='session-increment' onClick={incrementSession}>increment</button>
         <div id='session-length'>{sessionLength}</div>
       </section>
-      <Clock session={session} setSession={setSession} setBreakLength={setBreakLength} sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive}/>
+      <Clock sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive} breakLength={breakLength} setBreakLength={setBreakLength} secondsBreak={secondsBreak} setSecondsBreak={setSecondsBreak} minutesBreak={minutesBreak} setMinutesBreak={setMinutesBreak} breakActive={breakActive} setBreakActive={setBreakActive}/>
     </div>
   );
 }
