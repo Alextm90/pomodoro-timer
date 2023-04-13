@@ -2,6 +2,7 @@
 
 import React from 'react';
 import App from './App';
+import beep from "./beep.mp3";
 import './App.css';
 import {useEffect, useRef} from 'react';
 
@@ -11,11 +12,13 @@ const interval = useRef();
 const breakInterval = useRef();
 const timeInterval = useRef();
 
+let sound = document.getElementById("beep");
 
 // For seconds
 useEffect(() => {
    if (isActive && breakActive == false) {
     if (minutes == "00" & seconds == "00") {
+       sound.play();
    timeInterval.current = setTimeout(() => {  
      setBreakActive(true)
      console.log("true")
@@ -47,6 +50,7 @@ useEffect(() => {
  if (breakActive && isActive) {
     console.log("it is")
     if (minutesBreak == "00" && secondsBreak == "00") {
+      sound.play();
     timeInterval.current = setTimeout(() => {
       console.log("break over")
       setMinutesBreak(breakLength)
@@ -88,9 +92,12 @@ const startBreakMinutes = () => {
 
 // reset
 const reset = () => {
+let sound = document.getElementById("beep");
     if (isActive) {
       setIsActive(false)
       }
+    sound.pause();
+    sound.currentTime = 0;
     setBreakActive(false)
     setSecondsBreak("00")
     setMinutesBreak(5)
@@ -113,6 +120,7 @@ const startMinutes = () => {
         <div className="controls"  id='time-left'>{breakActive ? minutesBreak < 10 ? "0" + `${minutesBreak}`+`:${secondsBreak}` : `${minutesBreak}`+`:${secondsBreak}` : minutes < 10 ? "0" + `${minutes}`+`:${seconds}` : `${minutes}`+`:${seconds}`}</div>
         <button className="controls"  id='start_stop' onClick={() => setIsActive(!isActive)}>start/stop</button>
         <button className="controls"  id='reset' onClick={reset}>reset</button>
+        <audio src={beep}  id="beep"></audio>
     </section>
   )
 }
