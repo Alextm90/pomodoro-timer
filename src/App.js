@@ -17,6 +17,9 @@ function App() {
   const [sessionLength, setSessionLength] = useState(25);
   const [seconds, setSeconds] = useState("00");
   const [minutes, setMinutes] = useState(25);
+  const [sessionActive, setSessionActive] = useState(true)
+
+  // State for both
   const [isActive, setIsActive] = useState(false);
 
 
@@ -107,7 +110,7 @@ if (isActive === false) {
         <button id='session-increment' onClick={incrementSession}>increment</button>
         <div id='session-length'>{sessionLength}</div>
       </section>
-      <Clock sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive} breakLength={breakLength} setBreakLength={setBreakLength} secondsBreak={secondsBreak} setSecondsBreak={setSecondsBreak} minutesBreak={minutesBreak} setMinutesBreak={setMinutesBreak} breakActive={breakActive} setBreakActive={setBreakActive}/>
+      <Clock sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive} breakLength={breakLength} setBreakLength={setBreakLength} secondsBreak={secondsBreak} setSecondsBreak={setSecondsBreak} minutesBreak={minutesBreak} setMinutesBreak={setMinutesBreak} breakActive={breakActive} setBreakActive={setBreakActive} sessionActive={sessionActive} setSessionActive={setSessionActive}/>
     </div>
   );
 }

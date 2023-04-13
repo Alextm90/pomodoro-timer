@@ -5,18 +5,22 @@ import App from './App';
 import './App.css';
 import {useEffect, useRef} from 'react';
 
-const Clock = ({ breakLength, setBreakLength, sessionLength,setSessionLength, seconds, setSeconds, minutes, setMinutes, isActive, setIsActive, breakActive, setBreakActive, secondsBreak, setSecondsBreak, minutesBreak, setMinutesBreak }) => {
+
+const Clock = ({ breakLength, setBreakLength, sessionLength,setSessionLength, seconds, setSeconds, minutes, setMinutes, isActive, setIsActive, breakActive, setBreakActive, secondsBreak, setSecondsBreak, minutesBreak, setMinutesBreak, sessionActive, setSessionActive }) => {
 const interval = useRef();
 const breakInterval = useRef();
+const timeInterval = useRef();
+
 
 // For seconds
 useEffect(() => {
    if (isActive && breakActive == false) {
     if (minutes == "00" & seconds == "00") {
-      setMinutesBreak(breakLength)
-      setSecondsBreak("00")
-      console.log("break")
-      setBreakActive(!breakActive)
+   timeInterval.current = setTimeout(() => {  
+     setBreakActive(true)
+     console.log("true")
+     }, 2000);
+     return () => clearTimeout(timeInterval.current)
     }
      interval.current = setInterval(() => {
       if (seconds == "00") {
@@ -32,43 +36,52 @@ useEffect(() => {
       if (seconds == 1) {
         setSeconds("00")
         }
-    }, 100);
+    }, 300);
     return () => clearInterval(interval.current)
   }
 }, [isActive, seconds, minutes])
  
+
 // For break
 useEffect(() => {
  if (breakActive && isActive) {
     console.log("it is")
-    if (minutesBreak == "00" & secondsBreak == "00") {
+    if (minutesBreak == "00" && secondsBreak == "00") {
+    timeInterval.current = setTimeout(() => {
       console.log("break over")
-      setBreakActive(!breakActive)
+      setMinutesBreak(breakLength)
+      setSecondsBreak("00")
+      setBreakActive(false)
       setMinutes(sessionLength)
       setSeconds("00")
-
+     }, 2000);
+     return () => clearTimeout(timeInterval.current)
     }
      breakInterval.current = setInterval(() => {
       if (secondsBreak == "00") {
+        console.log(1)
         setSecondsBreak(60)
         startBreakMinutes()
       }
       setSecondsBreak(prev => prev - 1)
       if (secondsBreak <= 10 && secondsBreak != "00") { 
+        console.log(2)
         setSecondsBreak((secondsBreak) => {
             return "0" + secondsBreak
           })
         }
       if (secondsBreak == 1) {
+        console.log(3)
         setSecondsBreak("00")
         }
-    }, 100);
+    }, 300);
     return () => clearInterval(breakInterval.current)
  }
 },[breakActive, secondsBreak, minutesBreak, isActive])
 
 const startBreakMinutes = () => {
   if (secondsBreak == "00") {
+    console.log(4)
     setMinutesBreak(prev => prev - 1)
   }
 }
@@ -96,13 +109,12 @@ const startMinutes = () => {
 
   return (
     <section id='clock'>
-        <div id='timer-label'>Session</div>
-        <div className="controls"  id='time-left'>{minutes < 10 ? "0" + `${minutes}`+`:${seconds}` : `${minutes}`+`:${seconds}`}</div>
-        <div className='controls'>{minutesBreak < 10 ? "0" + `${minutesBreak}`+`:${secondsBreak}` : `${minutesBreak}`+`:${secondsBreak}`}</div>
+        <div id='timer-label'>{breakActive == false ? "Session" : "Break"}</div>
+        <div className="controls"  id='time-left'>{breakActive ? minutesBreak < 10 ? "0" + `${minutesBreak}`+`:${secondsBreak}` : `${minutesBreak}`+`:${secondsBreak}` : minutes < 10 ? "0" + `${minutes}`+`:${seconds}` : `${minutes}`+`:${seconds}`}</div>
         <button className="controls"  id='start_stop' onClick={() => setIsActive(!isActive)}>start/stop</button>
         <button className="controls"  id='reset' onClick={reset}>reset</button>
     </section>
   )
 }
 
-export default Clock
+export default Clock;
