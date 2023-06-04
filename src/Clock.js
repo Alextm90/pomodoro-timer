@@ -39,7 +39,7 @@ useEffect(() => {
       if (seconds == 1) {
         setSeconds("00")
         }
-    }, 300);
+    }, 1000);
     return () => clearInterval(interval.current)
   }
 }, [isActive, seconds, minutes])
