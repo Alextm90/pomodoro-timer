@@ -1,5 +1,5 @@
-// App
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faMinus, faRotateLeft } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 import { useState } from 'react';
 import Clock from './Clock'
@@ -12,16 +12,13 @@ function App() {
   const [secondsBreak, setSecondsBreak] = useState("00");
   const [minutesBreak, setMinutesBreak] = useState(5);
   
- 
   // State for session
   const [sessionLength, setSessionLength] = useState(25);
   const [seconds, setSeconds] = useState("00");
   const [minutes, setMinutes] = useState(25);
-  const [sessionActive, setSessionActive] = useState(true)
 
   // State for both
   const [isActive, setIsActive] = useState(false);
-
 
 // Break controls
 const decrementBreak = () => {
@@ -100,17 +97,17 @@ if (isActive === false) {
     <div className="App">
       <section id='length'>
         <div id="break-label">Break Length</div>
-        <button id="break-decrement" onClick={decrementBreak}>decrement</button>
-        <button id='break-increment' onClick={incrementBreak}>increment</button>
+        <button id="break-decrement" onClick={decrementBreak}><FontAwesomeIcon icon={faMinus}/></button>
+        <button id='break-increment' onClick={incrementBreak}><FontAwesomeIcon icon={faPlus}/></button>
         <div id='break-length'>{breakLength}</div>
       </section>
       <section id='length'>
         <div id="session-label">Session Length</div>
-        <button id="session-decrement" onClick={decrementSession}>decrement</button>
-        <button id='session-increment' onClick={incrementSession}>increment</button>
+        <button id="session-decrement" onClick={decrementSession}><FontAwesomeIcon icon={faMinus}/></button>
+        <button id='session-increment' onClick={incrementSession}><FontAwesomeIcon icon={faPlus}/></button>
         <div id='session-length'>{sessionLength}</div>
       </section>
-      <Clock sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive} breakLength={breakLength} setBreakLength={setBreakLength} secondsBreak={secondsBreak} setSecondsBreak={setSecondsBreak} minutesBreak={minutesBreak} setMinutesBreak={setMinutesBreak} breakActive={breakActive} setBreakActive={setBreakActive} sessionActive={sessionActive} setSessionActive={setSessionActive}/>
+      <Clock sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive} breakLength={breakLength} setBreakLength={setBreakLength} secondsBreak={secondsBreak} setSecondsBreak={setSecondsBreak} minutesBreak={minutesBreak} setMinutesBreak={setMinutesBreak} breakActive={breakActive} setBreakActive={setBreakActive}/>
     </div>
   );
 }

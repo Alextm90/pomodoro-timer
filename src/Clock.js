@@ -1,13 +1,12 @@
-// Clock
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRotateLeft, faPause, faPlay } from '@fortawesome/free-solid-svg-icons'
 import React from 'react';
-import App from './App';
 import beep from "./beep.mp3";
 import './App.css';
 import {useEffect, useRef} from 'react';
 
-
-const Clock = ({ breakLength, setBreakLength, sessionLength,setSessionLength, seconds, setSeconds, minutes, setMinutes, isActive, setIsActive, breakActive, setBreakActive, secondsBreak, setSecondsBreak, minutesBreak, setMinutesBreak, sessionActive, setSessionActive }) => {
+const Clock = ({ breakLength, setBreakLength, sessionLength,setSessionLength, seconds, setSeconds, minutes, setMinutes, isActive, setIsActive, breakActive, setBreakActive, secondsBreak, setSecondsBreak, minutesBreak, setMinutesBreak }) => {
+  
 const interval = useRef();
 const breakInterval = useRef();
 const timeInterval = useRef();
@@ -117,9 +116,12 @@ const startMinutes = () => {
   return (
     <section id='clock'>
         <div id='timer-label'>{breakActive == false ? "Session" : "Break"}</div>
-        <div className="controls"  id='time-left'>{breakActive ? minutesBreak < 10 ? "0" + `${minutesBreak}`+`:${secondsBreak}` : `${minutesBreak}`+`:${secondsBreak}` : minutes < 10 ? "0" + `${minutes}`+`:${seconds}` : `${minutes}`+`:${seconds}`}</div>
-        <button className="controls"  id='start_stop' onClick={() => setIsActive(!isActive)}>start/stop</button>
-        <button className="controls"  id='reset' onClick={reset}>reset</button>
+        <div id='time-left'>{breakActive ? minutesBreak < 10 ? "0" + `${minutesBreak}`+`:${secondsBreak}` : `${minutesBreak}`+`:${secondsBreak}` : minutes < 10 ? "0" + `${minutes}`+`:${seconds}` : `${minutes}`+`:${seconds}`}</div>
+        <div className="controls"  id='start_stop' onClick={() => setIsActive(!isActive)}>
+          <div id='play'><FontAwesomeIcon size="5x" icon={faPlay}/></div>
+          <div id='pause'><FontAwesomeIcon size="5x" icon={faPause}/></div>
+        </div>
+        <div className="controls" id='reset' onClick={reset}><FontAwesomeIcon size="2x" icon={faRotateLeft}/></div>
         <audio src={beep}  id="beep"></audio>
     </section>
   )
