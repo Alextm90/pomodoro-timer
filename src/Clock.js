@@ -115,12 +115,16 @@ const startMinutes = () => {
 
   return (
     <section id='clock'>
+        <div></div>
         <div id='timer-label'>{breakActive == false ? "Session" : "Break"}</div>
         <div id='time-left'>{breakActive ? minutesBreak < 10 ? "0" + `${minutesBreak}`+`:${secondsBreak}` : `${minutesBreak}`+`:${secondsBreak}` : minutes < 10 ? "0" + `${minutes}`+`:${seconds}` : `${minutes}`+`:${seconds}`}</div>
         <div className="controls"  id='start_stop' onClick={() => setIsActive(!isActive)}>
           <div id='play'><FontAwesomeIcon size="5x" icon={faPlay}/></div>
           <div id='pause'><FontAwesomeIcon size="5x" icon={faPause}/></div>
         </div>
+        <div id='background-one'></div>
+        <div id='background-two'></div>
+        <div id='background-three'></div>
         <div className="controls" id='reset' onClick={reset}><FontAwesomeIcon size="2x" icon={faRotateLeft}/></div>
         <audio src={beep}  id="beep"></audio>
     </section>

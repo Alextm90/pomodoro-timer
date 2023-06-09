@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faRotateLeft } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 import { useState } from 'react';
-import Clock from './Clock'
+import Clock from './Clock';
 
 function App() {
 

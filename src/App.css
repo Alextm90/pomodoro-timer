@@ -29,6 +29,12 @@ body {
   font-size: 35px;
 }
 
+#start_stop {
+  width: 7rem;
+  margin: 15px
+}
+
+
  #play {
   border-radius: 50%;
   width: 3rem;
@@ -40,6 +46,7 @@ body {
   align-items: center;
   position: relative;
   left: 10px;
+  z-index: 1;
 }
 
  #pause {
@@ -51,8 +58,46 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+   z-index: 1;
  }
 
  #start_stop {
   display: flex;
  }
+
+#background-one {
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid var(--clock-color);
+    z-index: -1;
+    position: relative;
+    left: 19px;
+    bottom: 69px;
+    background-color: black;
+}
+
+#background-two {
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid var(--clock-color);
+    z-index: -2;
+    position: relative;
+    left: 57px;
+    bottom: 129px;
+    background-color: black;
+    
+}
+
+#background-three {
+    border-radius: 50%;
+    width: 3rem;
+    height: 2.75rem;
+    z-index: 0;
+    position: relative;
+    bottom: 181px;
+    left: 42px;  
+    background-color: black;
+}
+
