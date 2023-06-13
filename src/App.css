@@ -5,8 +5,6 @@
 body {
   display: flex;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
 }
 
 #length {
@@ -28,12 +26,6 @@ body {
   box-shadow: 0px 0px 0px 3px white, 0px 0px 0px 6px var(--clock-color);
   font-size: 35px;
 }
-
-#start_stop {
-  width: 7rem;
-  margin: 15px
-}
-
 
  #play {
   border-radius: 50%;
@@ -61,43 +53,57 @@ body {
    z-index: 1;
  }
 
+ #reset {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--clock-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -14.2rem;
+  margin-left: 9rem;
+  box-shadow: 0px 0px 0px 4px white, 0px 0px 0px 6px var(--clock-color);
+ }
+
  #start_stop {
   display: flex;
+  width: 7rem;
+  margin: 15px;
  }
 
 #background-one {
-    border-radius: 50%;
-    width: 3.5rem;
-    height: 3.5rem;
-    border: 2px solid var(--clock-color);
-    z-index: -1;
-    position: relative;
-    left: 19px;
-    bottom: 69px;
-    background-color: black;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 2px solid var(--clock-color);
+  z-index: -1;
+  position: relative;
+  left: 19px;
+  bottom: 69px;
+  background-color: white;
 }
 
 #background-two {
-    border-radius: 50%;
-    width: 3.5rem;
-    height: 3.5rem;
-    border: 2px solid var(--clock-color);
-    z-index: -2;
-    position: relative;
-    left: 57px;
-    bottom: 129px;
-    background-color: black;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 2px solid var(--clock-color);
+  z-index: -2;
+  position: relative;
+  left: 57px;
+  bottom: 129px;
+  background-color: white;
     
 }
 
 #background-three {
-    border-radius: 50%;
-    width: 3rem;
-    height: 2.75rem;
-    z-index: 0;
-    position: relative;
-    bottom: 181px;
-    left: 42px;  
-    background-color: black;
+  border-radius: 50%;
+  width: 3rem;
+  height: 2.75rem;
+  z-index: 0;
+  position: relative;
+  bottom: 181px;
+  left: 42px;
+  background-color: white;
 }
-

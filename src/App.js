@@ -100,8 +100,6 @@ if (isActive === false) {
         <button id="break-decrement" onClick={decrementBreak}><FontAwesomeIcon icon={faMinus}/></button>
         <button id='break-increment' onClick={incrementBreak}><FontAwesomeIcon icon={faPlus}/></button>
         <div id='break-length'>{breakLength}</div>
-      </section>
-      <section id='length'>
         <div id="session-label">Session Length</div>
         <button id="session-decrement" onClick={decrementSession}><FontAwesomeIcon icon={faMinus}/></button>
         <button id='session-increment' onClick={incrementSession}><FontAwesomeIcon icon={faPlus}/></button>
