@@ -95,16 +95,22 @@ if (isActive === false) {
 
   return (
     <div className="App">
-      <section id='length'>
-        <div id="break-label">Break Length</div>
-        <button id="break-decrement" onClick={decrementBreak}><FontAwesomeIcon icon={faMinus}/></button>
-        <button id='break-increment' onClick={incrementBreak}><FontAwesomeIcon icon={faPlus}/></button>
-        <div id='break-length'>{breakLength}</div>
-        <div id="session-label">Session Length</div>
-        <button id="session-decrement" onClick={decrementSession}><FontAwesomeIcon icon={faMinus}/></button>
-        <button id='session-increment' onClick={incrementSession}><FontAwesomeIcon icon={faPlus}/></button>
-        <div id='session-length'>{sessionLength}</div>
-      </section>
+        <div id='break-container'>
+          <div id="break-label">Break Length</div>
+          <div className='control-container'>
+            <button id="break-decrement" onClick={decrementBreak}><FontAwesomeIcon icon={faMinus}/></button>
+            <div id='break-length'>{breakLength}</div>
+            <button id='break-increment' onClick={incrementBreak}><FontAwesomeIcon icon={faPlus}/></button>
+          </div>
+        </div>
+        <div id='session-container'>
+          <div id="session-label">Session Length</div>
+          <div className='control-container'>
+            <button id="session-decrement" onClick={decrementSession}><FontAwesomeIcon icon={faMinus}/></button>
+            <div id='session-length'>{sessionLength}</div>
+            <button id='session-increment' onClick={incrementSession}><FontAwesomeIcon icon={faPlus}/></button>
+          </div>
+        </div>
       <Clock sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive} breakLength={breakLength} setBreakLength={setBreakLength} secondsBreak={secondsBreak} setSecondsBreak={setSecondsBreak} minutesBreak={minutesBreak} setMinutesBreak={setMinutesBreak} breakActive={breakActive} setBreakActive={setBreakActive}/>
     </div>
   );

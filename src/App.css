@@ -5,11 +5,35 @@
 body {
   display: flex;
   height: 100vh;
+
 }
 
-#length {
-  margin: 3rem;
+/* controls */
+button {
+  margin: .5rem;
 }
+
+.control-container {
+  display: flex;
+} 
+
+#break-length {
+  display: flex;
+  align-items: center;
+}
+
+#break-container {
+  display: block;
+}
+ 
+#session-container {
+  display: block;
+}
+
+#session-length {
+  display: flex;
+  align-items: center;
+ }
 
 .controls:hover {
   cursor: pointer;
