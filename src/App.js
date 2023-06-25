@@ -24,11 +24,11 @@ function App() {
 const decrementBreak = () => {
 if (isActive === false) {
     if (breakLength > 1) {
-    setBreakLength(prevState => prevState - 1)
+     setBreakLength(prevState => prevState - 1)
     }
     if (breakLength > 10 && minutesBreak != 10) {
       console.log("10")
-    setMinutesBreak(prevState => prevState - 1)
+      setMinutesBreak(prevState => prevState - 1)
     }
     if (minutesBreak <= 10 && breakLength > 1) {
       console.log("9")
@@ -60,12 +60,11 @@ if (isActive === false) {
 const decrementSession = () => {
 if (isActive === false) {
     if (sessionLength > 1) {
-    setSessionLength(prevState => prevState - 1)
+      setSessionLength(prevState => prevState - 1)
     }
-
     if (sessionLength > 10 && minutes != 10) {
       console.log("10")
-    setMinutes(prevState => prevState - 1)
+      setMinutes(prevState => prevState - 1)
     }
     if (minutes <= 10 && sessionLength > 1) {
       console.log("9")
@@ -98,17 +97,17 @@ if (isActive === false) {
         <div id='break-container'>
           <div id="break-label">Break Length</div>
           <div className='control-container'>
-            <button id="break-decrement" onClick={decrementBreak}><FontAwesomeIcon icon={faMinus}/></button>
+            <div id="break-decrement" className='timer_controls' onClick={decrementBreak}><FontAwesomeIcon icon={faMinus}/></div>
             <div id='break-length'>{breakLength}</div>
-            <button id='break-increment' onClick={incrementBreak}><FontAwesomeIcon icon={faPlus}/></button>
+            <div id='break-increment' className='timer_controls' onClick={incrementBreak}><FontAwesomeIcon icon={faPlus}/></div>
           </div>
         </div>
         <div id='session-container'>
           <div id="session-label">Session Length</div>
           <div className='control-container'>
-            <button id="session-decrement" onClick={decrementSession}><FontAwesomeIcon icon={faMinus}/></button>
+            <div id="session-decrement" className='timer_controls' onClick={decrementSession}><FontAwesomeIcon icon={faMinus}/></div>
             <div id='session-length'>{sessionLength}</div>
-            <button id='session-increment' onClick={incrementSession}><FontAwesomeIcon icon={faPlus}/></button>
+            <div id='session-increment' className='timer_controls' onClick={incrementSession}><FontAwesomeIcon icon={faPlus}/></div>
           </div>
         </div>
       <Clock sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive} breakLength={breakLength} setBreakLength={setBreakLength} secondsBreak={secondsBreak} setSecondsBreak={setSecondsBreak} minutesBreak={minutesBreak} setMinutesBreak={setMinutesBreak} breakActive={breakActive} setBreakActive={setBreakActive}/>
