@@ -5,17 +5,32 @@
 body {
   display: flex;
   height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   background-color: black;
 }
 
+#session-line {
+  width: 25.9rem;
+  border-bottom: 1px solid var(--clock-color);
+  position: relative;
+  right: 40rem;
+  top: 2.6rem;
+}
+
+#break-line {
+  width: 25.9rem;
+  border-bottom: 1px solid var(--clock-color);
+  position: relative;
+  left: 40rem;
+  top: 10.9rem;
+}
 /* timer controls */
 
 .timer_controls {
   border-radius: 50%;
   width: 1.5rem;
+  font-size: 17px;
   height: 1.5rem;
   display: flex;
   justify-content: center;
@@ -24,83 +39,112 @@ body {
   margin: .5rem;
 }
 
+button {
+  border: none;
+}
+
 .control-container {
   display: flex;
+  justify-content: center;
+  width: 14.2rem;
+  margin-top: .5rem;
 } 
 
 #break-length {
   display: flex;
   align-items: center;
   color: var(--clock-color);
-  font-size: 25px;
+  font-size: 30px;
 }
+
 
 #break-container {
   display: block;
   margin: 1rem;
+  position: relative;
+  left: 24.6rem; 
+  top: 8.3rem;
+  font-family: "Mametosca 026";
 }
 
 #break-label {
-  font-size: 20px;
+  font-size: 24px;
   color: var(--clock-color);
   border: .25rem solid var(--clock-color);
-  box-shadow: 0px 0px 0px 3px black, 0px 0px 0px 4px var(--clock-color);
-  width: 8.2rem;
-  text-align: center;
-  position: relative;
-  right: 1.6rem;
+  box-shadow: 0px 0px 0px 4px black, 0px 0px 0px 5px var(--clock-color);
+  width: 13.2rem;
+  height: 2.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: .2rem;
+  padding: .4rem .1rem .1rem .1rem;
 }
 
 #session-container {
   display: block;
   margin: 1rem;
+  position: relative;
+  right: 15rem;
+  font-family: "Mametosca 026";
 }
 
 #session-length {
   display: flex;
   align-items: center;
   color: var(--clock-color);
-  font-size: 25px;
+  font-size: 30px;
  }
+
 
  #session-label {
-   font-size: 20px;
+   font-size: 24px;
    color: var(--clock-color);
    border: .25rem solid var(--clock-color);
-   box-shadow: 0px 0px 0px 3px black, 0px 0px 0px 4px var(--clock-color);
-   width: 8.2rem;
-   text-align: center;
-   position: relative;
-   right: 1.2rem;
+   box-shadow: 0px 0px 0px 4px black, 0px 0px 0px 5px var(--clock-color);
+   width: 13.2rem;
+   height: 2.3rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    margin: .2rem;
+   padding: .4rem .4rem .1rem .4rem;
  }
 
-.controls:hover {
+.controls, .timer_controls:hover {
   cursor: pointer;
 }
 
-/* timer */
+/* clock face */
 #time-left {
-  border: .45rem solid var(--clock-color);
+  border: .4rem solid var(--clock-color);
   border-radius: 50%;
-  width: 13rem;
-  height: 13rem;
+  width: 19rem;
+  height: 19rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 0px 3px black, 0px 0px 0px 6px var(--clock-color);
-  font-size: 55px;
+  box-shadow: 0px 0px 0px 5px black, 0px 0px 0px 6.5px var(--clock-color);
+  font-size: 95px;
   color: var(--clock-color);
+  margin-bottom: 2rem;
+  position: relative;
+  bottom: 4rem;
+  left: 3.5rem;
+  font-family: "Mametosca 026";
 }
 
 #timer-label {
   color: var(--clock-color);
-  font-size: 25px;
+  font-size: 28px;
   margin-bottom:1rem;
   text-align: center;
+  position: relative;
+  top: 2rem;
+  font-family: "Mametosca 026";
 }
 
+/* clock face controls*/
  #play {
   border-radius: 50%;
   width: 3rem;
@@ -115,16 +159,25 @@ body {
   z-index: 1;
 }
 
+#control-container {
+ position: relative;
+ bottom: 4rem;
+ left: 6.5rem;
+}
+
+
  #pause {
-   border-radius: 50%;
-   width: 3rem;
-   height: 3rem;
-   font-size: 5px;
-   background-color: var(--clock-color);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   z-index: 1;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 5px;
+  background-color: var(--clock-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 1px;
+  z-index: 1;
  }
 
  #reset {
@@ -137,7 +190,7 @@ body {
   align-items: center;
   margin-top: -14.2rem;
   margin-left: 9rem;
-  box-shadow: 0px 0px 0px 4px black, 0px 0px 0px 6px var(--clock-color);
+  box-shadow: 0px 0px 0px 5px black, 0px 0px 0px 6.5px var(--clock-color);
  }
 
  #start_stop {
@@ -148,36 +201,36 @@ body {
 
 #background-one {
   border-radius: 50%;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.55rem;
+  height: 3.55rem;
   border: 2px solid var(--clock-color);
   z-index: -1;
   position: relative;
-  left: 19px;
+  left: 18px;
   bottom: 69px;
   background-color: black;
 }
 
 #background-two {
   border-radius: 50%;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.55rem;
+  height: 3.55rem;
   border: 2px solid var(--clock-color);
   z-index: -2;
   position: relative;
   left: 57px;
-  bottom: 129px;
+  bottom: 129.5px;
   background-color: black;
     
 }
 
 #background-three {
   border-radius: 50%;
-  width: 3rem;
-  height: 2.75rem;
+  width: 3.2rem;
+  height: 2.77rem;
   z-index: 0;
   position: relative;
-  bottom: 181px;
-  left: 42px;
+  bottom: 182px;
+  left: 44px;
   background-color: black;
 }

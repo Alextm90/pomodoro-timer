@@ -94,20 +94,22 @@ if (isActive === false) {
 
   return (
     <div className="App">
+        <div id="break-line"></div>
         <div id='break-container'>
           <div id="break-label">Break Length</div>
           <div className='control-container'>
-            <div id="break-decrement" className='timer_controls' onClick={decrementBreak}><FontAwesomeIcon icon={faMinus}/></div>
+            <button id="break-decrement" className='timer_controls' onClick={decrementBreak}><FontAwesomeIcon  icon={faMinus}/></button>
             <div id='break-length'>{breakLength}</div>
-            <div id='break-increment' className='timer_controls' onClick={incrementBreak}><FontAwesomeIcon icon={faPlus}/></div>
+            <button id='break-increment' className='timer_controls' onClick={incrementBreak}><FontAwesomeIcon  icon={faPlus}/></button>
           </div>
         </div>
+        <div id="session-line"></div>
         <div id='session-container'>
           <div id="session-label">Session Length</div>
           <div className='control-container'>
-            <div id="session-decrement" className='timer_controls' onClick={decrementSession}><FontAwesomeIcon icon={faMinus}/></div>
+            <button id="session-decrement" className='timer_controls' onClick={decrementSession}><FontAwesomeIcon  icon={faMinus}/></button>
             <div id='session-length'>{sessionLength}</div>
-            <div id='session-increment' className='timer_controls' onClick={incrementSession}><FontAwesomeIcon icon={faPlus}/></div>
+            <button id='session-increment' className='timer_controls' onClick={incrementSession}><FontAwesomeIcon  icon={faPlus}/></button>
           </div>
         </div>
       <Clock sessionLength={sessionLength} setSessionLength={setSessionLength} seconds={seconds} setSeconds={setSeconds} minutes={minutes} setMinutes={setMinutes} isActive={isActive} setIsActive={setIsActive} breakLength={breakLength} setBreakLength={setBreakLength} secondsBreak={secondsBreak} setSecondsBreak={setSecondsBreak} minutesBreak={minutesBreak} setMinutesBreak={setMinutesBreak} breakActive={breakActive} setBreakActive={setBreakActive}/>
