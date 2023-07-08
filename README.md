@@ -1,4 +1,4 @@
 Pomodoro Timer built with React
 
 
-https://alextm-pomodoro-timer.surge.sh/
+https://alextm-25-5-clock.surge.sh
