@@ -94,6 +94,9 @@ if (isActive === false) {
 
   return (
     <div className="App">
+        <p id="heading1">POMODORO</p>
+        <p id="heading2">TIMER</p>
+        <div id="heading-line"></div>
         <div id="break-line"></div>
         <div id='break-container'>
           <div id="break-label">Break Length</div>

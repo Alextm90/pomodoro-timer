@@ -3,28 +3,40 @@
 }
 
 body {
-  display: flex;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
   background-color: black;
+  margin-right: none;
 }
 
-#session-line {
-  width: 25.9rem;
-  border-bottom: 1px solid var(--clock-color);
+#heading1 {
+  color: var(--clock-color);
+  font-family: "Mametosca 026";
+  font-size: 55px;
   position: relative;
-  right: 40rem;
-  top: 2.6rem;
+  top: 2rem;
+  left: 28rem;
+  display: inline-block;
 }
 
-#break-line {
-  width: 25.9rem;
+#heading2 {
+  color: black;
+  font-family: "Mametosca 026";
+  font-size: 55px;
+  display: inline-block;
+  position: relative;
+  left: 29rem;
+  top: 2rem;
+  -webkit-text-stroke: 2px var(--clock-color)
+}
+
+#heading-line {
+  width: 28.5rem;
   border-bottom: 1px solid var(--clock-color);
   position: relative;
-  left: 40rem;
-  top: 10.9rem;
+  bottom: 3.55rem;
+  right: .5rem;
 }
+
 /* timer controls */
 
 .timer_controls {
@@ -55,15 +67,24 @@ button {
   align-items: center;
   color: var(--clock-color);
   font-size: 30px;
+  position: relative;
+  top: .2rem;
 }
 
+#break-line {
+  width: 19rem;
+  border-bottom: 1px solid var(--clock-color);
+  position: relative;
+  left: 70.5rem;
+  top: 6rem;
+}
 
 #break-container {
-  display: block;
+  display: inline-block;
   margin: 1rem;
   position: relative;
-  left: 24.6rem; 
-  top: 8.3rem;
+  top: 3rem;
+  left: 54.6rem;
   font-family: "Mametosca 026";
 }
 
@@ -72,7 +93,7 @@ button {
   color: var(--clock-color);
   border: .25rem solid var(--clock-color);
   box-shadow: 0px 0px 0px 4px black, 0px 0px 0px 5px var(--clock-color);
-  width: 13.2rem;
+  width: 13.8rem;
   height: 2.3rem;
   display: flex;
   justify-content: center;
@@ -82,11 +103,20 @@ button {
 }
 
 #session-container {
-  display: block;
+  display: inline-block;
   margin: 1rem;
   position: relative;
-  right: 15rem;
+  bottom: 5.5rem;
+  left: 17.5rem;
   font-family: "Mametosca 026";
+}
+
+#session-line {
+  width: 19rem;
+  border-bottom: 1px solid var(--clock-color);
+  position: relative;
+  right: .5rem;
+  bottom: 2.5rem;
 }
 
 #session-length {
@@ -94,8 +124,9 @@ button {
   align-items: center;
   color: var(--clock-color);
   font-size: 30px;
+  position: relative;
+  top: .2rem;
  }
-
 
  #session-label {
    font-size: 24px;
@@ -128,19 +159,20 @@ button {
   font-size: 95px;
   color: var(--clock-color);
   margin-bottom: 2rem;
-  position: relative;
-  bottom: 4rem;
-  left: 3.5rem;
   font-family: "Mametosca 026";
+  position: relative;
+  left: 34.7rem;
+  bottom: 6rem;
 }
 
 #timer-label {
   color: var(--clock-color);
   font-size: 28px;
   margin-bottom:1rem;
+  width: 10rem;
   text-align: center;
   position: relative;
-  top: 2rem;
+  left: 39.5rem;
   font-family: "Mametosca 026";
 }
 
@@ -161,10 +193,10 @@ button {
 
 #control-container {
  position: relative;
- bottom: 4rem;
- left: 6.5rem;
+ left: 37.9rem;
+ bottom: 10rem;
+ width: 15rem;
 }
-
 
  #pause {
   border-radius: 50%;
@@ -188,9 +220,8 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -14.2rem;
-  margin-left: 9rem;
-  box-shadow: 0px 0px 0px 5px black, 0px 0px 0px 6.5px var(--clock-color);
+  margin-top: -18.03rem;
+  margin-left: 8.4rem;
  }
 
  #start_stop {
@@ -216,12 +247,11 @@ button {
   width: 3.55rem;
   height: 3.55rem;
   border: 2px solid var(--clock-color);
-  z-index: -2;
+  z-index: -1;
   position: relative;
   left: 57px;
   bottom: 129.5px;
-  background-color: black;
-    
+  background-color: black; 
 }
 
 #background-three {
@@ -232,5 +262,17 @@ button {
   position: relative;
   bottom: 182px;
   left: 44px;
+  background-color: black;
+}
+
+#background-four {
+  border-radius: 50%;
+  width: 3.55rem;
+  height: 3.55rem;
+  border: 2px solid var(--clock-color);
+  z-index: -1;
+  position: relative;
+  left: 8rem;
+  bottom: 14.63rem;
   background-color: black;
 }

@@ -125,6 +125,7 @@ const startMinutes = () => {
             <div id='background-one'></div>
             <div id='background-two'></div>
             <div id='background-three'></div>
+            <div id='background-four'></div>
             <div className="controls" id='reset' onClick={reset}><FontAwesomeIcon size="2x" icon={faRotateLeft}/>
           </div>
         </div>
