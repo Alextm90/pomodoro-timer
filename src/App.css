@@ -5,7 +5,9 @@
 body {
   height: 100vh;
   background-color: black;
-  margin-right: none;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
 #heading1 {
@@ -13,8 +15,8 @@ body {
   font-family: "Mametosca 026";
   font-size: 55px;
   position: relative;
-  top: 2rem;
-  left: 28rem;
+  top: 1rem;
+  left: 3.5rem;
   display: inline-block;
 }
 
@@ -24,17 +26,17 @@ body {
   font-size: 55px;
   display: inline-block;
   position: relative;
-  left: 29rem;
-  top: 2rem;
+  top: 1rem;
+  left: 4.5rem;
   -webkit-text-stroke: 2px var(--clock-color)
 }
 
 #heading-line {
-  width: 28.5rem;
+  width: 40rem;
   border-bottom: 1px solid var(--clock-color);
   position: relative;
-  bottom: 3.55rem;
-  right: .5rem;
+  bottom: 4.55rem;
+  right: 36.5rem;
 }
 
 /* timer controls */
@@ -72,10 +74,10 @@ button {
 }
 
 #break-line {
-  width: 19rem;
+  width: 30rem;
   border-bottom: 1px solid var(--clock-color);
   position: relative;
-  left: 70.5rem;
+  left: 47rem;
   top: 6rem;
 }
 
@@ -84,7 +86,7 @@ button {
   margin: 1rem;
   position: relative;
   top: 3rem;
-  left: 54.6rem;
+  left: 31.5rem;
   font-family: "Mametosca 026";
 }
 
@@ -107,15 +109,15 @@ button {
   margin: 1rem;
   position: relative;
   bottom: 5.5rem;
-  left: 17.5rem;
+  right: 8.5rem;
   font-family: "Mametosca 026";
 }
 
 #session-line {
-  width: 19rem;
+  width: 30rem;
   border-bottom: 1px solid var(--clock-color);
   position: relative;
-  right: .5rem;
+  right: 37.5rem;
   bottom: 2.5rem;
 }
 
@@ -161,7 +163,7 @@ button {
   margin-bottom: 2rem;
   font-family: "Mametosca 026";
   position: relative;
-  left: 34.7rem;
+  left: 10.1rem;
   bottom: 6rem;
 }
 
@@ -172,7 +174,7 @@ button {
   width: 10rem;
   text-align: center;
   position: relative;
-  left: 39.5rem;
+  left: 15rem;
   font-family: "Mametosca 026";
 }
 
@@ -192,11 +194,11 @@ button {
 }
 
 #control-container {
- position: relative;
- left: 37.9rem;
- bottom: 10rem;
- width: 15rem;
-}
+  position: relative;
+  left: 13.4rem;
+  bottom: 10.1rem;
+  width: 15rem;
+  }
 
  #pause {
   border-radius: 50%;
