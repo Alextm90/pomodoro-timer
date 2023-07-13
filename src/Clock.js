@@ -77,7 +77,7 @@ useEffect(() => {
         console.log(3)
         setSecondsBreak("00")
         }
-    }, 300);
+    }, 1000);
     return () => clearInterval(breakInterval.current)
  }
 },[breakActive, secondsBreak, minutesBreak, isActive])
